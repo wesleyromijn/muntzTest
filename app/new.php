@@ -7,13 +7,13 @@
     <h2>Voeg een dealer toe</h2>
     <form method="post" class="newUserForm">
       <ul>
-        <li><label for="name">Name</label><input type="text" name="name" id="name" required></li>
-        <li><label for="address">Address</label><input type="text" name="address" id="address" required></li>
-        <li><label for="zipcode">Zipcode</label><input type="text" name="zipcode" id="zipcode" required></li>
-        <li><label for="city">City</label><input type="text" name="city" id="city" required></li>
-        <li><label for="country">Country</label><input type="text" name="country" id="country" required></li>
-        <li><label for="phone">Phone</label><input type="text" name="phone" id="phone" required></li>
-        <li><label for="remarks">Remarks</label><input type="text" name="remarks" id="remarks" required></li>
+        <li><label for="name">Name</label><input type="text" name="name" id="name" pattern="[a-zA-Z0-9- ]+" required></li>
+        <li><label for="address">Address</label><input type="text" name="address" id="address" pattern="[a-zA-Z0-9- ]+" required></li>
+        <li><label for="zipcode">Zipcode</label><input type="text" name="zipcode" id="zipcode" pattern="[a-zA-Z0-9- ]+" required></li>
+        <li><label for="city">City</label><input type="text" name="city" id="city" pattern="[a-zA-Z0-9- ]+" required></li>
+        <li><label for="country">Country</label><input type="text" name="country" id="country" pattern="[a-zA-Z0-9- ]+" required></li>
+        <li><label for="phone">Phone</label><input type="text" name="phone" id="phone" pattern="[0-9-]+" required></li>
+        <li><label for="remarks">Remarks</label><input type="text" name="remarks" id="remarks" pattern="[a-zA-Z0-9- ]+" required></li>
         </ul>
         <button type="submit" name="submit" value="Submit" class="button"><span>Toevoegen</span></button>
       </form>
@@ -24,6 +24,7 @@
 <?php
 if (isset($_POST['submit'])) {
     require "config.php";
+    require "common.php";
   
     try {
       $connection = new PDO($dsn, $username, $password, $options);

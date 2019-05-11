@@ -3,7 +3,7 @@
   <?php include 'header.php'; ?>
   <body>
     <header>
-    	<div class="container"><h1><span class="myName"></span></h1></div>
+      <div class="container"><h1><span class="myName"></span></h1></div>
     </header>
     <div class="content-full">
       <div class="container">
