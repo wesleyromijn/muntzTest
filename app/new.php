@@ -1,17 +1,23 @@
-<h2>Add a Row</h2>
+<?php include 'header.php'; ?>
+<header>
+    <div class="container"><h1><span class="myName"></span></h1></div>
+  </header>
 <div class="content-full">
-    <div class="container">
+    <div class="container addForm">
+    <h2>Voeg een dealer toe</h2>
     <form method="post" class="newUserForm">
-    	<label for="name">Name</label><input type="text" name="name" id="name">
-    	<label for="address">Address</label><input type="text" name="address" id="address">
-    	<label for="zipcode">Zipcode</label><input type="text" name="zipcode" id="zipcode">
-    	<label for="city">City</label><input type="text" name="city" id="city">
-        <label for="country">Country</label><input type="text" name="country" id="country">
-        <label for="phone">Phone</label><input type="text" name="phone" id="phone">
-        <label for="remarks">Remarks</label><input type="text" name="remarks" id="remarks">
-        <input type="submit" name="submit" value="Submit">
-    </form>
-    <a href="index.php">Back</a>
+      <ul>
+        <li><label for="name">Name</label><input type="text" name="name" id="name" required></li>
+        <li><label for="address">Address</label><input type="text" name="address" id="address" required></li>
+        <li><label for="zipcode">Zipcode</label><input type="text" name="zipcode" id="zipcode" required></li>
+        <li><label for="city">City</label><input type="text" name="city" id="city" required></li>
+        <li><label for="country">Country</label><input type="text" name="country" id="country" required></li>
+        <li><label for="phone">Phone</label><input type="text" name="phone" id="phone" required></li>
+        <li><label for="remarks">Remarks</label><input type="text" name="remarks" id="remarks" required></li>
+        </ul>
+        <button type="submit" name="submit" value="Submit" class="button"><span>Toevoegen</span></button>
+      </form>
+    <a href="index.php">Terug (voor  nu)</a>
 </div>
 </div>
 
@@ -30,7 +36,9 @@ if (isset($_POST['submit'])) {
         "phone"  => $_POST['phone'],
         "remarks"  => $_POST['remarks']
       );
-
+      if($new_dealer.name !='' or $new_dealer.address !='' or $new_dealer.zipcode !='' or $new_dealer.city !='' or $new_dealer.country !='' or $new_dealer.phone !='' or $new_dealer.remarks !=''){
+      header("Location:http://localhost/Github/muntzTest/app/index.php");
+      }
       $sql = sprintf(
         "INSERT INTO %s (%s) values (%s)",
         "dealers",
@@ -48,3 +56,4 @@ if (isset($_POST['submit'])) {
   }
 
 ?>
+<?php include 'footer.php'; ?>

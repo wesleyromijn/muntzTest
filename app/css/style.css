@@ -3,6 +3,35 @@ body {
     font-family: sans-serif;
     margin:0px;
 }
+
+.button {
+    line-height: 40px;
+    overflow: hidden;
+    background-color:transparent;
+    -webkit-appearance: none;
+    border: 1px solid black;
+    padding: 0px 20px;
+    transition: all 0.3s ease-in-out;
+    height:40px;
+    position: relative;
+    color: black;
+    text-transform:uppercase;
+    cursor: pointer;
+    display: inline-block;
+}
+.button .span {position:relative;z-index:10;}
+.button:after {
+    content: '';
+    height: 40px;
+    width: 30px;
+    background-color: rgb(82, 221, 231);
+    transition: all 0.3s ease-in-out;
+    position:absolute;left:-30px;z-index:1;
+}
+
+.button:hover:after {
+    left:120%;
+}
 /* HEADER */
 header {
     background-color: rgba(230,230,230,1);
@@ -33,9 +62,19 @@ header h1 {}
         margin-left: 20px;
     }
 } */
-
-.newUserForm label {max-width:100%;}
-.newUserForm input {}
+.newUserForm, .addForm h2 {max-width:800px;margin: 0 auto;}
+.newUserForm ul{display:flex;flex-wrap:wrap;
+    padding:40px;
+    margin:0px;
+    background-color: rgba(230,230,230,1);
+}
+.newUserForm ul li{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+    width:100%;
+    line-height:40px;
+}
+.newUserForm label {max-width:100px;min-width:100px;}
+.newUserForm input:not([type="submit"]) {width: calc(100% - 100px - 20px);margin-left:20px;}
 /* END NEW USER */
 
 /* END CONTENT */
